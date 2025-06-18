@@ -5,7 +5,7 @@ const PizzaSlice = createSlice({
     name:"gestion pizza",
     initialState:'',
     reducers:{
-
+        
     }
 })
 
