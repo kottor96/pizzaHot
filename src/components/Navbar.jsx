@@ -1,9 +1,9 @@
-import logo from "../assets/ph-logo-white.webp";
+import logo from "../assets/logo/ph-logo-white.webp";
 
 export default function Navbar(params) {
     return(
-        <nav>
-            <div className="logo">
+        <nav className="navbar">
+            <div className="navbar-brand">
                 <img src={logo} alt="logo pizza hut" />
             </div>
             <div>
