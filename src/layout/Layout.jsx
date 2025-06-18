@@ -8,6 +8,7 @@ export default function Layout(params) {
         <div id="layout">
             <Navbar/>
             <Outlet/>
+            <Footer/>
         </div>
     )
 }
