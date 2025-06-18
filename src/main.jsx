@@ -5,6 +5,7 @@ import App from './App.jsx'
 import { HashRouter } from "react-router-dom";
 import { Provider } from 'react-redux'
 import store from './app/Store.jsx';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
