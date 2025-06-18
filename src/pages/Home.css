@@ -1,0 +1,43 @@
+#pizzaCardContent > p{
+    max-height: 0px;
+    transition: max-height 0.6 ease-out;
+    color: rgb(0, 0, 0);
+    overflow: hidden;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+#pizzaCard:hover #pizzaCardContent > p{
+    max-height: 100px;
+}
+
+.pizza-image-container {
+  position: relative;
+  width: 260px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.pizza-ingredients-overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%; 
+  background: rgba(255,255,255,0.85); 
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.4s, opacity 0.4s;
+  pointer-events: none;
+}
+
+.pizza-image-container:hover .pizza-ingredients-overlay {
+  transform: translateY(0%);
+  opacity: 1;
+  pointer-events: auto;
+}
