@@ -27,12 +27,16 @@ export default function Footer(){
                 <p style={{color:'white'}}>Emplois</p>
             </div>
         </div>
-        <div>
-            <div>
-
+        <div style={{width:'100%', display:'flex', marginTop:'6%'}}>
+            <div style={{width:'50%', color:'grey'}}>
+                <span>Ceci est un exercice, gang</span>
             </div>
-            <div>
-
+            <div style={{width:'50%', color:'white', display:'flex', fontSize:'11px', gap:'3%'}}>
+                <p>© 2025 Pizza Hot Training Template</p> 
+                <a href="#">Conditions de ventes</a>
+                <a href="#">Conditions générales</a>
+                <a href="#">Conditions de confidentialité</a>
+                <a href="#">Cookies</a>
             </div>
         </div>
     </footer>
