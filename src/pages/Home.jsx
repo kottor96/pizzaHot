@@ -1,12 +1,15 @@
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import  './Home.css'
+import { ajouterPanier, retirerPanier, toggleModifier } from "../features/pizzaSlice";
 
 export default function Home() {
 
-const listPizza = useSelector((state)=> state.pizza.listPizza)
- 
-
-
+    const listPizza = useSelector((state)=> state.pizza.listPizza)
+    const dispatch = useDispatch()
+    const panier = useSelector((state)=> state.pizza.panier)
+    
+    console.log(panier);
+    
     return(
 
     <>
@@ -24,13 +27,19 @@ const listPizza = useSelector((state)=> state.pizza.listPizza)
                         </div>
                         <p style={{margin:'0'}}><strong> {element.name}</strong></p><br />
 
-                        <p style={{marginLeft:'auto', marginRight:'3%'}}>à partir de <strong>€{element.price}</strong> <button style={{backgroundColor:'rgb(199, 1, 26)', color:'white', border:'none', height:'40px', width:'40px', borderRadius:'10px'}} >+</button></p>
+                        <p style={{marginLeft:'auto', marginRight:'3%'}}>à partir de <strong>€{element.price}</strong> <button onClick={()=>{dispatch(ajouterPanier(element.name))}} style={{backgroundColor:'rgb(199, 1, 26)', color:'white', border:'none', height:'40px', width:'40px', borderRadius:'10px'}} >+</button></p>
                     </div>
                 )}
             </div>
             <div style={{width:'33%', height:'100%', display:'flex',padding:'2% 0 0 2%'}}>
                 <div style={{backgroundColor:'white', height: '600px', width:'370px', position:'fixed'}}>
-
+                    {panier.map((el,index)=>(
+                        <div>
+                            <p>{el.name}</p>
+                            <button onClick={()=>dispatch(retirerPanier(index))}>retirer</button>
+                            <button onClick={()=>dispatch(toggleModifier(index))}></button>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

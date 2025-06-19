@@ -5,7 +5,6 @@ export default function Navbar(params) {
     return(
         <nav className="navbar bg-danger navbar-expand" data-bs-theme='dark'>
             <div className="container justify-content-center">
-
                 <div className="navbar-brand">
                     <img src={logo} alt="logo pizza hut" />
                 </div>
