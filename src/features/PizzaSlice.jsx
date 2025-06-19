@@ -3,7 +3,7 @@ import data from "../data/pizzas.json";
 import { useNavigate } from "react-router-dom";
 
 const coupon = [{ code:"XB2-22", value:10, type:"reduction" }, { code:"XB2-23", value:15, type:"reduction" }, { code:"42", value:1 ,type:"gratos", condition:2}]
-const initialState = { listPizza: data, panier: [], coupon,afficherModifier:null }
+const initialState = { listPizza: data, panier: [], coupon,afficherModifier:null , isModifPizzaVisible: false}
 const navigate = useNavigate()
 const PizzaSlice = createSlice({
     name:"gestion pizza",
@@ -28,7 +28,10 @@ const PizzaSlice = createSlice({
         validerModif(state){
              state.panier.push({...pizza,ingredients:pizza.ingredients.map(el=>({...el,quantiter:true}))})
         },
+        setIsModifPizzaVisible: (state, action) => {
+            state.isModifPizzaVisible = action.payload;
+          },
     }
 })
-export const {ajouterPanier,retirerPanier,switchIngredient,toggleModifier} = PizzaSlice.actions
+export const {ajouterPanier,retirerPanier,switchIngredient,toggleModifier,setIsModifPizzaVisible} = PizzaSlice.actions
 export const PizzaReducer = PizzaSlice.reducer
