@@ -7,7 +7,7 @@ export default function Panier() {
   const dispatch = useDispatch();
   const local = useLocation();
   const navigate = useNavigate();
-
+  
   return (
     <div style={{ backgroundColor: "white", height: "auto", width: "370px", position: "fixed" }}>
         <h5 style={{fontWeight:'bolder'}}>Panier d'achat</h5>
@@ -18,20 +18,25 @@ export default function Panier() {
         </div>
         <p style={{marginTop:'0', fontSize:'13px', cursor:'pointer', opacity:'0.7',width:'89%',marginLeft:"auto",marginRight:'auto', borderBottom: '1px black dashed', marginTop:'2%', paddingBottom:'10px'}}>Modifier l'adresse?</p>
       {panier.map((el, index) =>
+      el.afficher ? (
         <div className="btnPanier" key={index} style={{width:'89%', marginLeft:'auto',marginRight:'auto'}}>
           <div style={{display:'flex', justifyContent:'space-between'}}>
             <p style={{fontWeight:'400'}}> <strong>{el.name}</strong></p>
             <p style={{fontWeight:'400'}}> <strong>{el.price}€</strong></p>
-            </div> 
+              {el.ingredients
+                .filter(ingredient => ingredient.quantiter === false)
+                .map(ingredient => ingredient.name)
+                .join(' - ')
+              }
+          </div>
           {local.pathname==='/' ? (
-            <>
             <div style={{marginBottom:'2%', display:'flex', justifyContent:'end', borderBottom: '1px black dashed',paddingBottom:'10px', marginBottom:'5%'}}>
                 <button style={{border:'none', background:'none', color:'red', fontWeight:'200', fontSize:'12px'}} onClick={() => dispatch(retirerPanier(index))}>supprimer</button>
                 <button style={{border:'none', background:'none', color:'black', fontWeight:'200', fontSize:'12px'}} onClick={() => navigate(`/modif/${index}`)}>modifier</button>
             </div>
-            </>
           ) : null}
         </div>
+        ) : null
       )}
       <div style={{marginTop:'10%', textAlign:'center', border:'1px dashed black', padding:'0 10px 0 10px',opacity:'0.6', width:'89%',marginLeft:'auto',marginRight:'auto'}}>
         <p>Vous pouvez entrer votre coupon à l'étape suivante !</p>

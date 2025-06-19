@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import { useParams,useNavigate } from "react-router-dom";
 import Panier from "../components/Panier";
-import { switchIngredient } from "../features/pizzaSlice";
+import { cancel, switchIngredient, valider } from "../features/pizzaSlice";
 
 
 
@@ -12,8 +12,8 @@ export default function ModifPizza(){
     const {recup} = useParams()
     const indexPage = parseInt(recup);
     const dispatch = useDispatch()
-    const pizza = panier[indexPage]
-    console.log(recup);
+    const pizzaBis = useSelector((state)=>(state.pizza.modifierPizza))
+    const pizza = pizzaBis ?? panier[indexPage]
     const navigate = useNavigate()
     useEffect(()=>{
         if(!pizza){
@@ -23,7 +23,7 @@ export default function ModifPizza(){
      
     return(
         <section>
-            <button onClick={()=>{navigate(-1)}}>retour</button>
+            <button onClick={()=>{dispatch(cancel()),navigate(-1)}}>retour</button>
             {pizza
             ?   <div>
                     <div><img src={pizza.image} alt={pizza.name} /></div>
@@ -35,6 +35,7 @@ export default function ModifPizza(){
                             </div>
                         ))}
                     </div>
+                    <button onClick={()=>{dispatch(valider(indexPage)),navigate('/')}}>valider</button>
                 </div>
             :
             null
