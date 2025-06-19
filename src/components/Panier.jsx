@@ -24,7 +24,7 @@ export default function Panier() {
           <div style={{display:'flex', justifyContent:'space-between'}}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
               <p style={{ margin: 0, fontWeight: 'bold' }}>{el.name}</p>
-              <div style={{ marginTop: '8px' }}>
+              <div style={{ marginTop: '8px', fontSize:'12px' }}>
                sans : {el.ingredients
                 .filter(ingredient => ingredient.quantiter === false)
                 .map(ingredient => ingredient.name)
