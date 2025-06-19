@@ -1,12 +1,14 @@
 import { useSelector,useDispatch } from "react-redux";
 import  './Home.css'
 import { ajouterPanier, retirerPanier, toggleModifier } from "../features/pizzaSlice";
+import Panier from "../components/Panier";
+
 
 export default function Home() {
 
     const listPizza = useSelector((state)=> state.pizza.listPizza)
     const dispatch = useDispatch()
-    const panier = useSelector((state)=> state.pizza.panier)
+    
     
     
     
@@ -32,15 +34,7 @@ export default function Home() {
                 )}
             </div>
             <div style={{width:'33%', height:'100%', display:'flex',padding:'2% 0 0 2%'}}>
-                <div style={{backgroundColor:'white', height: '600px', width:'370px', position:'fixed'}}>
-                    {panier.map((el,index)=>(
-                        <div>
-                            <p>{el.name}</p>
-                            <button onClick={()=>dispatch(retirerPanier(index))}>supprimer</button>
-                            <button onClick={()=>dispatch(toggleModifier(index))}>modifier</button>
-                        </div>
-                    ))}
-                </div>
+                <Panier/>
             </div>
         </div>
     </>)
