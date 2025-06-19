@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams,useNavigate } from "react-router-dom";
+import Panier from "../components/Panier";
+
 
 
 export default function ModifPizza(){
@@ -31,7 +33,9 @@ export default function ModifPizza(){
             :
             null
             }
-            
+            <div>
+                <Panier/>
+            </div>
         </section>
     )
 }
