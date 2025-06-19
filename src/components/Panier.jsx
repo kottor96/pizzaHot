@@ -7,6 +7,7 @@ export default function Panier() {
   const dispatch = useDispatch();
   const local = useLocation();
   const navigate = useNavigate();
+  console.log(panier);
   
   return (
     <div style={{ backgroundColor: "white", height: "auto", width: "370px", position: "fixed" }}>
