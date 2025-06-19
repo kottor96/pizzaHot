@@ -9,19 +9,23 @@ const PizzaSlice = createSlice({
     initialState,
     reducers:{
         ajouterPanier(state,action){
-            const pizza = state.listPizza.find((el)=>el.name===action.payload)
+            const pizza = state.listPizza.find((el,i)=>i===action.payload)
+            state.afficherModifier = pizza
             state.panier.push({...pizza,ingredients:pizza.ingredients.map(el=>({...el,quantiter:true}))})
         },
         retirerPanier(state,action){
             state.panier=state.panier.filter((el,i)=> i !== action.payload)
         },
         switchIngredient(state,action){
-            const ingredient = pizzaBis[action.payload.indexBis]
+            const ingredient = state.afficherModifier[action.payload]
             ingredient.quantiter=!ingredient.quantiter
         },
-        toggleModifier(state){
-            state.afficherModifier = state.panier
-        }
+        toggleModifier(state,action){
+            state.afficherModifier = state.panier[action.payload]
+        },
+        validerModif(state){
+            state.panier.push(state.afficherModifier)
+        },
     }
 })
 export const {ajouterPanier,retirerPanier,switchIngredient,toggleModifier} = PizzaSlice.actions
