@@ -23,6 +23,7 @@ export default function ModifPizza(){
      
     return(
         <section>
+            <button onClick={()=>{navigate(-1)}}>retour</button>
             {pizza
             ?   <div>
                     <div><img src={pizza.image} alt={pizza.name} /></div>
