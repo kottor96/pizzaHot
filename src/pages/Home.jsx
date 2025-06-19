@@ -36,7 +36,7 @@ export default function Home() {
                         </div>
                         <p style={{margin:'0'}}><strong> {element.name}</strong></p><br />
 
-                        <p style={{marginLeft:'auto', marginRight:'3%'}}>à partir de <strong>€{element.price}</strong> <button onClick={()=>{dispatch(ajouterPanier(index))}} style={{backgroundColor:'rgb(199, 1, 26)', color:'white', border:'none', height:'40px', width:'40px', borderRadius:'10px'}} >+</button></p>
+                        <p style={{marginLeft:'auto', marginRight:'3%'}}>à partir de <strong>€{element.price}</strong> <button id="btnPanier1" onClick={()=>{dispatch(ajouterPanier(index))}} style={{backgroundColor:'rgb(199, 1, 26)', color:'white', border:'none', height:'40px', width:'40px', borderRadius:'10px'}} >+</button></p>
                     </div>
                 )}
             </div>

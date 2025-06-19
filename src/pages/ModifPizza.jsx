@@ -17,7 +17,7 @@ export default function ModifPizza(){
     },[pizza])
      
     return(
-        <section>
+        <section >
             {pizza
             ?   <div>
                     <div><img src={pizza.image} alt={pizza.name} /></div>

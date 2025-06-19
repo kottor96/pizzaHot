@@ -18,6 +18,9 @@
   overflow: hidden;
 }
 
+#btnPanier1:hover{
+    background-color:rgb(211, 91, 205) !important;
+}
 .pizza-ingredients-overlay {
   position: absolute;
   left: 0;
