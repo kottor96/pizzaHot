@@ -25,11 +25,11 @@ export default function Panier() {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
               <p style={{ margin: 0, fontWeight: 'bold' }}>{el.name}</p>
               <div style={{ marginTop: '8px' }}>
-                {el.ingredients.map((ingredient, idx) => ( 
-                  <span key={idx} style={{ fontSize: '13px', display: 'block' }}>
-                    {ingredient.name} 
-                  </span>
-                ))}
+               sans : {el.ingredients
+                .filter(ingredient => ingredient.quantiter === false)
+                .map(ingredient => ingredient.name)
+                .join(' - ')
+              }
               </div>
             </div>
             <p style={{fontWeight:'400'}}> <strong>{el.price}€</strong></p> <br />
