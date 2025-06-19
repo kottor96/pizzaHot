@@ -30,7 +30,11 @@ const PizzaSlice = createSlice({
             
         },
         valider(state,action){
-            state.panier[action.payload] = {...state.modifierPizza, afficher: true}
+            if (!state.modifierPizza){
+                state.panier[action.payload] = {...state.panier[action.payload],afficher:true}
+            }else{
+                state.panier[action.payload] = {...state.modifierPizza, afficher: true}
+            }
             state.modifierPizza=null
         },
         cancel(state){

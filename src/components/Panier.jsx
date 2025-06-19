@@ -7,6 +7,7 @@ export default function Panier() {
   const dispatch = useDispatch();
   const local = useLocation();
   const navigate = useNavigate();
+  console.log(panier);
   
   return (
     <div style={{ backgroundColor: "white", height: "auto", width: "370px", position: "fixed" }}>
@@ -24,9 +25,11 @@ export default function Panier() {
             <p style={{fontWeight:'400'}}> <strong>{el.name}</strong></p>
             <p style={{fontWeight:'400'}}> <strong>{el.price}€</strong></p>
               {el.ingredients
+                
                 .filter(ingredient => ingredient.quantiter === false)
                 .map(ingredient => ingredient.name)
                 .join(' - ')
+                
               }
           </div>
           {local.pathname==='/' ? (
