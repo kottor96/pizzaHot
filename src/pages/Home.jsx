@@ -19,11 +19,11 @@ export default function Home() {
 
     <>
         <div style={{width:'100%', height:'auto', padding:'0 10% 0 10%', display:'flex', backgroundColor:'rgb(245, 247, 249)', paddingBottom:'10%'}}>
-            <div style={{width:'66%', backgroundColor:'wheat', height:'100%', display:'flex', flexWrap:'wrap'}}>
+            <div style={{width:'66%', backgroundColor:'rgb(245, 247, 249)', height:'100%', display:'flex', flexWrap:'wrap', marginTop:'5.9%'}}>
                 {listPizza.map((element, index) =>
-                    <div id="pizzaCard" style={{display:'flex', flexDirection:'column', gap:'3%', margin:'0 auto 30px auto', backgroundColor:'white', width:'260px', position: 'relative', overflow: 'hidden'}} key={index}>
+                    <div id="pizzaCard" style={{display:'flex', flexDirection:'column', gap:'3%', margin:'0 auto 30px auto', backgroundColor:'white', width:'260px', position: 'relative', borderRadius:'5%'}} key={index}>
                         <div className="pizza-image-container" style={{position: 'relative', width: '260px', height: '200px'}}>
-                          <img style={{height:'200px', width:'260px', marginBottom:'0', display: 'block'}} src={element.image} alt="" />
+                          <img style={{height:'200px', width:'260px', marginBottom:'0', display: 'block', borderTopLeftRadius:'5%', borderTopRightRadius:'5%'}} src={element.image} alt="" />
                           <div style={{display:'flex'}} className="pizza-ingredients-overlay">
                             {element.ingredients.map((ingredient, idx) =>
                               <span style={{margin:'0', fontSize:'13px'}} key={idx}>{ingredient.name} <br /></span> 
@@ -39,7 +39,7 @@ export default function Home() {
                     </div>
                 )}
             </div>
-            <div style={{width:'33%', height:'100%', display:'flex',padding:'2% 0 0 2%'}}>
+            <div style={{width:'33%', height:'100%', display:'flex',padding:'2% 0 0 2%', marginTop:'3.9%'}}>
                 <Panier/>
             </div>
         </div>
