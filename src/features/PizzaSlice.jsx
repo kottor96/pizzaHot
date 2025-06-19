@@ -18,20 +18,20 @@ const PizzaSlice = createSlice({
         },
         switchIngredient(state,action){
             const originalPizza = state.panier[action.payload.indexBis];
-            state.modifierPizza = {
-                ...originalPizza,
-                ingredients: originalPizza.ingredients.map(el => ({ ...el }))
-            };
+            if(state.modifierPizza===null){
+                state.modifierPizza = {
+                    ...originalPizza,
+                    ingredients: originalPizza.ingredients.map(el => ({ ...el }))
+                };
+            }
             const ingredient = state.modifierPizza.ingredients[action.payload.index];
             ingredient.quantiter = !ingredient.quantiter;
             console.log(state.modifierPizza);
             
         },
         valider(state,action){
-            let tempo = state.panier[action.payload]
-            
-            
-            tempo.afficher=true
+            state.panier[action.payload] = {...state.modifierPizza, afficher: true}
+            state.modifierPizza=null
         },
         cancel(state){
             state.panier=state.panier.filter(el=>el.afficher!==false)

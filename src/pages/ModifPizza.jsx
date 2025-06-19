@@ -12,7 +12,8 @@ export default function ModifPizza(){
     const {recup} = useParams()
     const indexPage = parseInt(recup);
     const dispatch = useDispatch()
-    const pizza = panier[indexPage]
+    const pizzaBis = useSelector((state)=>(state.pizza.modifierPizza))
+    const pizza = pizzaBis ?? panier[indexPage]
     const navigate = useNavigate()
     useEffect(()=>{
         if(!pizza){
