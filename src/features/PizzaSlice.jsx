@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit'
 import data from "../data/pizzas.json";
 
 const coupon = [{ code:"XB2-22", value:10, type:"reduction" }, { code:"XB2-23", value:15, type:"reduction" }, { code:"42", value:1 ,type:"gratos", condition:2}]
-const initialState = { listPizza: data, panier: [], coupon,afficherModifier:null , isModifPizzaVisible: false}
+const initialState = { listPizza: data, panier: [], coupon, voyage:null, isModifPizzaVisible: false}
 
 
 const PizzaSlice = createSlice({
@@ -29,8 +29,11 @@ const PizzaSlice = createSlice({
         },
         setIsModifPizzaVisible: (state, action) => {
             state.isModifPizzaVisible = action.payload;
-          },
+        },
+        vider:(state)=>{
+            state.voyage = null
+        }
     }
 })
-export const {ajouterPanier,retirerPanier,switchIngredient,toggleModifier,setIsModifPizzaVisible} = PizzaSlice.actions
+export const {ajouterPanier,retirerPanier,switchIngredient,toggleModifier,setIsModifPizzaVisible,vider} = PizzaSlice.actions
 export const PizzaReducer = PizzaSlice.reducer
