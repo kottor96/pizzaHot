@@ -22,7 +22,7 @@ export default function Panier() {
           <div style={{display:'flex', justifyContent:'space-between'}}>
             <p style={{fontWeight:'400'}}> <strong>{el.name}</strong></p>
             <p style={{fontWeight:'400'}}> <strong>{el.price}€</strong></p>
-            </div>
+            </div> 
           {local.pathname==='/' ? (
             <>
             <div style={{marginBottom:'2%', display:'flex', justifyContent:'end', borderBottom: '1px black dashed',paddingBottom:'10px', marginBottom:'5%'}}>
