@@ -3,13 +3,14 @@ import  './Home.css'
 import { ajouterPanier } from "../features/pizzaSlice";
 import Panier from "../components/Panier";
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from "react";
 
 export default function Home() {
     const navigate = useNavigate()
     const listPizza = useSelector((state)=> state.pizza.listPizza)
     const dispatch = useDispatch()
-    const deplacer = useSelector((state)=>state.pizza.voyage)
-    
+    const panier = useSelector((state) => state.pizza.panier);
+
     
     
     
@@ -32,8 +33,8 @@ export default function Home() {
                         <p style={{margin:'0'}}><strong> {element.name}</strong></p><br />
 
                         <p style={{marginLeft:'auto', marginRight:'3%'}}>à partir de 
-                            <strong>€{element.price}</strong> 
-                            <button onClick={()=>{dispatch(ajouterPanier(index)),navigate(`/modif/${index}`)}} style={{backgroundColor:'rgb(199, 1, 26)', color:'white', border:'none', height:'40px', width:'40px', borderRadius:'10px'}} >+</button>
+                            <strong> €{element.price} </strong> 
+                            <button onClick={()=>{dispatch(ajouterPanier(index)),navigate(`/modif/${panier.length}`)}} style={{backgroundColor:'rgb(199, 1, 26)', color:'white', border:'none', height:'40px', width:'40px', borderRadius:'10px'}} >+</button>
                         </p>
                     </div>
                 )}
