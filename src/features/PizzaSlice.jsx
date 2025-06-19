@@ -1,9 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit'
 import data from "../data/pizzas.json";
+import { useNavigate } from "react-router-dom";
 
 const coupon = [{ code:"XB2-22", value:10, type:"reduction" }, { code:"XB2-23", value:15, type:"reduction" }, { code:"42", value:1 ,type:"gratos", condition:2}]
 const initialState = { listPizza: data, panier: [], coupon,afficherModifier:null }
-
+const navigate = useNavigate()
 const PizzaSlice = createSlice({
     name:"gestion pizza",
     initialState,
@@ -11,7 +12,8 @@ const PizzaSlice = createSlice({
         ajouterPanier(state,action){
             const pizza = state.listPizza.find((el,i)=>i===action.payload)
             state.afficherModifier = pizza
-            state.panier.push({...pizza,ingredients:pizza.ingredients.map(el=>({...el,quantiter:true}))})
+            navigate(`/modif/${pizza.name}`)
+           
         },
         retirerPanier(state,action){
             state.panier=state.panier.filter((el,i)=> i !== action.payload)
@@ -24,7 +26,7 @@ const PizzaSlice = createSlice({
             state.afficherModifier = state.panier[action.payload]
         },
         validerModif(state){
-            state.panier.push(state.afficherModifier)
+             state.panier.push({...pizza,ingredients:pizza.ingredients.map(el=>({...el,quantiter:true}))})
         },
     }
 })

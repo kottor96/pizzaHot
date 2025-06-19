@@ -9,6 +9,7 @@ export default function Home() {
     const panier = useSelector((state)=> state.pizza.panier)
     
     
+    
     return(
 
     <>
