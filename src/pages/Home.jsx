@@ -1,9 +1,7 @@
 import { useSelector,useDispatch } from "react-redux";
 import  './Home.css'
-import { ajouterPanier, retirerPanier, toggleModifier, vider } from "../features/pizzaSlice";
+import { ajouterPanier } from "../features/pizzaSlice";
 import Panier from "../components/Panier";
-
-import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
@@ -11,10 +9,7 @@ export default function Home() {
     const listPizza = useSelector((state)=> state.pizza.listPizza)
     const dispatch = useDispatch()
     const deplacer = useSelector((state)=>state.pizza.voyage)
-    useEffect(()=>{
-        navigate(deplacer)
-        dispatch(vider())
-    },[deplacer])
+    
     
     
     
@@ -36,7 +31,10 @@ export default function Home() {
                         </div>
                         <p style={{margin:'0'}}><strong> {element.name}</strong></p><br />
 
-                        <p style={{marginLeft:'auto', marginRight:'3%'}}>à partir de <strong>€{element.price}</strong> <button onClick={()=>{dispatch(ajouterPanier(index))}} style={{backgroundColor:'rgb(199, 1, 26)', color:'white', border:'none', height:'40px', width:'40px', borderRadius:'10px'}} >+</button></p>
+                        <p style={{marginLeft:'auto', marginRight:'3%'}}>à partir de 
+                            <strong>€{element.price}</strong> 
+                            <button onClick={()=>{dispatch(ajouterPanier(index)),navigate(`/modif/${index}`)}} style={{backgroundColor:'rgb(199, 1, 26)', color:'white', border:'none', height:'40px', width:'40px', borderRadius:'10px'}} >+</button>
+                        </p>
                     </div>
                 )}
             </div>
