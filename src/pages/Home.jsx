@@ -1,14 +1,18 @@
 import { useSelector,useDispatch } from "react-redux";
 import  './Home.css'
 import { ajouterPanier, retirerPanier, toggleModifier } from "../features/pizzaSlice";
+import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
-
+    const navigate = useNavigate()
     const listPizza = useSelector((state)=> state.pizza.listPizza)
     const dispatch = useDispatch()
     const panier = useSelector((state)=> state.pizza.panier)
-    
-    
+    const deplacer = useSelector((state)=>state.pizza.voyage)
+    useEffect(()=>{
+        navigate(deplacer)
+    },[deplacer])
     
     return(
 

@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path={'/'} element={<Layout/>}>
           <Route index element={<Home/>}/>
-          <Route path="/modif/:name" element={<ModifPizza/>}/>
+          <Route path="/modif/:index" element={<ModifPizza/>}/>
         </Route>
       </Routes>
     </>
