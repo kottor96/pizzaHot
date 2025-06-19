@@ -21,13 +21,17 @@ export default function Panier() {
       el.afficher ? (
         <div className="btnPanier" key={index} style={{width:'89%', marginLeft:'auto',marginRight:'auto'}}>
           <div style={{display:'flex', justifyContent:'space-between'}}>
-            <p style={{fontWeight:'400'}}> <strong>{el.name}</strong></p>
-            <p style={{fontWeight:'400'}}> <strong>{el.price}€</strong></p>
-              {el.ingredients
-                .filter(ingredient => ingredient.quantiter === false)
-                .map(ingredient => ingredient.name)
-                .join(' - ')
-              }
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+              <p style={{ margin: 0, fontWeight: 'bold' }}>{el.name}</p>
+              <div style={{ marginTop: '8px' }}>
+                {el.ingredients.map((ingredient, idx) => ( 
+                  <span key={idx} style={{ fontSize: '13px', display: 'block' }}>
+                    {ingredient.name} 
+                  </span>
+                ))}
+              </div>
+            </div>
+            <p style={{fontWeight:'400'}}> <strong>{el.price}€</strong></p> <br />
           </div>
           {local.pathname==='/' ? (
             <div style={{marginBottom:'2%', display:'flex', justifyContent:'end', borderBottom: '1px black dashed',paddingBottom:'10px', marginBottom:'5%'}}>
