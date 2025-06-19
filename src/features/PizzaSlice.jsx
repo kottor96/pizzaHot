@@ -1,19 +1,16 @@
 import {createSlice} from '@reduxjs/toolkit'
 import data from "../data/pizzas.json";
-import { useNavigate } from "react-router-dom";
 
 const coupon = [{ code:"XB2-22", value:10, type:"reduction" }, { code:"XB2-23", value:15, type:"reduction" }, { code:"42", value:1 ,type:"gratos", condition:2}]
-const initialState = { listPizza: data, panier: [], coupon,afficherModifier:null }
-const navigate = useNavigate()
+const initialState = { listPizza: data, panier: [], coupon,voyage:null}
 const PizzaSlice = createSlice({
     name:"gestion pizza",
     initialState,
     reducers:{
         ajouterPanier(state,action){
             const pizza = state.listPizza.find((el,i)=>i===action.payload)
-            state.afficherModifier = pizza
-            navigate(`/modif/${pizza.name}`)
-           
+            state.panier.push({...pizza,ingredients:pizza.ingredients.map(el=>({...el,quantiter:true}))})
+            state.voyage = `/modif/${action.payload}`
         },
         retirerPanier(state,action){
             state.panier=state.panier.filter((el,i)=> i !== action.payload)
@@ -23,10 +20,10 @@ const PizzaSlice = createSlice({
             ingredient.quantiter=!ingredient.quantiter
         },
         toggleModifier(state,action){
-            state.afficherModifier = state.panier[action.payload]
+            state.voyage = `/modif/${action.payload}`
         },
         validerModif(state){
-             state.panier.push({...pizza,ingredients:pizza.ingredients.map(el=>({...el,quantiter:true}))})
+            state.panier.push(afficherModifier)
         },
     }
 })
