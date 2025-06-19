@@ -7,19 +7,22 @@ export default function Panier() {
   const dispatch = useDispatch();
   const local = useLocation();
   const navigate = useNavigate();
-
+  console.log(panier);
+  
   return (
     <div style={{ backgroundColor: "white", height: "600px", width: "370px", position: "fixed" }}>
       {panier.map((el, index) =>
-        <div className="btnPanier" key={index}>
-          <p>{el.name}</p>
-          {local.pathname==='/' ? (
-            <>
-              <button onClick={() => dispatch(retirerPanier(index))}>supprimer</button>
-              <button onClick={() => navigate(`/modif/${index}`)}>modifier</button>
-            </>
-          ) : null}
-        </div>
+        el.afficher ? (
+          <div className="btnPanier" key={index}>
+            <p>{el.name}</p>
+            {local.pathname === '/' && (
+              <>
+                <button onClick={() => dispatch(retirerPanier(index))}>supprimer</button>
+                <button onClick={() => navigate(`/modif/${index}`)}>modifier</button>
+              </>
+            )}
+          </div>
+        ) : null
       )}
     </div>
   );
