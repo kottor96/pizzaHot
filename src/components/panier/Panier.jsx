@@ -186,8 +186,8 @@ export default function Panier() {
           marginTop: "3%",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
+        <div>
+          <div style={{textAlign:"right"}}>
             {gratos &&
               promoGratos &&
               promoGratos.condition <= panier.length &&
@@ -196,13 +196,15 @@ export default function Panier() {
               <p>-{(total_sansReduc * promoReduction.value).toFixed(2)} €</p>
             )}
           </div>
-          <p>Total</p>
-          <p>{Number(total).toFixed(2)} €</p>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <p>Total</p>
+            <p>{Number(total).toFixed(2)} €</p>
+          </div>
         </div>
       </div>
-      <div>
+      {local.pathname=="/"&&<div>
         <button
-          onClick={() => {navigate("/merci" ),validerCommande}}
+          onClick={() => {navigate("/merci" ),dispatch(validerCommande())}}
           style={{
             width: "370px",
             backgroundColor: "rgb(128, 187, 1)",
@@ -238,7 +240,7 @@ export default function Panier() {
             </p>
           </div>
         </button>
-      </div>
+      </div>}
     </div>
   );
 }
