@@ -1,8 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit'
 import data from "../data/pizzas.json";
 
-const coupon = [{ code:"XB2-22", value:10, type:"reduction" }, { code:"XB2-23", value:15, type:"reduction" }, { code:"42", value:1 ,type:"gratos", condition:2}]
-const initialState = { listPizza: data, panier: [], coupon, modifierPizza:null}
+const coupon = [{ code:"XB2-22", value:0.1, type:"reduction" }, { code:"XB2-23", value:0.15, type:"reduction" }, { code:"42", value:1 ,type:"gratos", condition:2}]
+const initialState = { listPizza: data, panier: [], coupon, modifierPizza:null,reduction:null,gratos:null}
 
 const PizzaSlice = createSlice({
     name:"gestion pizza",
@@ -38,6 +38,16 @@ const PizzaSlice = createSlice({
         },
         cancel(state){
             state.panier=state.panier.filter(el=>el.afficher!==false)
+        },
+        ajouterCoupon(state,action){
+            let coupon = state.coupon.find(coupon=> coupon.code === action.payload)
+            if (coupon) {
+                if (coupon.type === "reduction") {
+                    state.reduction.push(coupon)
+                } else if (coupon.type === "gratos"){
+                    state.gratos === coupon
+                }
+            }
         }
     }
 })
@@ -45,7 +55,14 @@ export const {ajouterPanier,retirerPanier,switchIngredient,cancel,valider} = Piz
 export const PizzaReducer = PizzaSlice.reducer
 
 export const selectTotalPanier = (state) => {
-  return state.pizza.panier
-    .filter(pizza=> pizza.afficher === true)
-    .reduce((total, pizza) => total + pizza.price, 0);
+    let totalPizza =  state.pizza.panier
+        .filter(pizza=> pizza.afficher === true)
+        .reduce((total, pizza) => total + pizza.price, 0)
+    let totalReduction = totalPizza * (1 - state.pizza.reduction!=null?state.pizza.reduction.value:0)
+    let gratos = state.pizza.gratos
+    let pizzaGratos = state.pizza.panier.sort(function(a,b){
+        a.price-b.price
+    })[0];
+    let totalReduc = totalReduction - (gratos !== null && state.pizza.panier.length > gratos.condition ? pizzaGratos.price : 0)
+    return { total: totalReduc , gratos: pizzaGratos }
 };

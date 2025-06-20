@@ -7,7 +7,7 @@ export default function Panier() {
   const dispatch = useDispatch();
   const local = useLocation();
   const navigate = useNavigate();
-  const prixTotal = useSelector(selectTotalPanier)
+  const {total,gratos} = useSelector(selectTotalPanier)
   console.log(panier);
   
   return (
