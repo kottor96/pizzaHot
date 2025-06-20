@@ -1,3 +1,37 @@
 #navbar{
     z-index: 1;
 }
+
+#merci{
+    height: 100vh;
+    width: 99vw;
+    margin: 0;
+    background-color: rgb(245, 247, 249);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#commande{
+    height: 50vh;
+    width: 50vw;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    flex-direction: column;
+}
+#p2{
+    margin-top: 9%;
+    font-size: 30px;
+}
+
+#question{
+    display: flex;
+    position: relative;
+    transform: translateY(135px);
+}
+#infos{
+    font-size: 17px;
+    opacity: 60%;
+}
