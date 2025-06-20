@@ -19,7 +19,7 @@ export default function Panier() {
   
   
   return (
-    <div style={{ backgroundColor: "white", height: "auto", width: "370px", position: "fixed" }}>
+    <div id="panier" style={{ backgroundColor: "white", height: "auto", width: "370px", position: "fixed" }}>
         <h5 style={{fontWeight:'bolder'}}>Panier d'achat</h5>
         <div style={{backgroundColor:'rgb(245, 247, 249)', width:'89%', marginLeft:"auto",marginRight:'auto'}}>
             <p style={{marginBottom:'0'}}>Livraison à</p>
@@ -59,9 +59,9 @@ export default function Panier() {
         {error!==null&&<p>{error}</p>}
       </div>
       <div style={{backgroundColor:'rgb(245, 247, 249)', width:'100%', marginLeft:'auto',marginRight:'auto', marginTop:'3%'}}>
-        <div>
-          {gratos!==null&&promoGratos&&promoGratos.condition<=panier.length&&<p>-{gratos.price.toFixed(2)}</p>}
-          {promoReduction!==null&&<p>-{(total_sansReduc*promoReduction.value).toFixed(2)} €</p>}
+        <div className="reduc">
+          {gratos!==null&&promoGratos&&promoGratos.condition<=panier.length&&<p>- {gratos.price.toFixed(2)} €</p>}
+          {promoReduction!==null&&<p>- {(total_sansReduc*promoReduction.value).toFixed(2)} €</p>}
         </div>
         <div style={{display:'flex',justifyContent:'space-between'}}>
           <p>Total</p>
