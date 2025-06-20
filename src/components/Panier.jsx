@@ -62,7 +62,7 @@ export default function Panier() {
             <div style={{display:'flex', justifyContent:'space-between', marginLeft:'auto',marginRight:'auto',marginTop:'2px'}}>
                 <p style={{backgroundColor:'rgb(76, 111, 1)', padding:'0 10px 0 10px', color:'white',fontSize:'20px'}}>1</p>
                 <p style={{color:'white', fontSize:'20px', marginLeft:'4%'}}>Commander</p>
-                <p style={{color:'white', fontSize:'20px'}}>(montant)</p>
+                <p style={{color:'white', fontSize:'20px'}}>{prixTotal}</p>
             </div>
         </button>
       </div>
