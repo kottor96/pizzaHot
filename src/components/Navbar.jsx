@@ -1,10 +1,11 @@
 import logo from "../assets/logo/ph-logo-white.webp";
 import { NavLink } from "react-router-dom";
+import '../App.css'
 
 export default function Navbar(params) {
     return(
-        <nav className="navbar bg-danger navbar-expand" data-bs-theme='dark'>
-            <div className="container justify-content-center">
+        <nav id="navbar" style={{position:'fixed', width:'100%'}} className="navbar bg-danger navbar-expand" data-bs-theme='dark'>
+            <div className="container justify-content-center" >
                 <div className="navbar-brand">
                     <img src={logo} alt="logo pizza hut" />
                 </div>
