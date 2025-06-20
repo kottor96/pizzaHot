@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
+  validerCommande,
   ajouterCoupon,
   retirerPanier,
   selectTotalPanier,
-} from "../features/pizzaSlice";
+} from "../../features/pizzaSlice";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./panier.css";
-import { validerCommande,ajouterCoupon, retirerPanier, selectTotalPanier } from "../../features/pizzaSlice";
 
 export default function Panier() {
   const navigate = useNavigate();
@@ -199,7 +199,7 @@ export default function Panier() {
       </div>
       <div>
         <button
-          onClick={() => navigate("/merci")}
+          onClick={() => {navigate("/merci" ),validerCommande}}
           style={{
             width: "370px",
             backgroundColor: "rgb(128, 187, 1)",
