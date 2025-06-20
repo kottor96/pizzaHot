@@ -4,7 +4,6 @@ import data from "../data/pizzas.json";
 const coupon = [{ code:"XB2-22", value:10, type:"reduction" }, { code:"XB2-23", value:15, type:"reduction" }, { code:"42", value:1 ,type:"gratos", condition:2}]
 const initialState = { listPizza: data, panier: [], coupon, modifierPizza:null}
 
-
 const PizzaSlice = createSlice({
     name:"gestion pizza",
     initialState,
@@ -40,8 +39,11 @@ const PizzaSlice = createSlice({
         cancel(state){
             state.panier=state.panier.filter(el=>el.afficher!==false)
         }
-        
     }
 })
 export const {ajouterPanier,retirerPanier,switchIngredient,cancel,valider} = PizzaSlice.actions
 export const PizzaReducer = PizzaSlice.reducer
+
+export const selectTotalPanier = (state) => {
+  return state.pizza.panier.reduce((total, pizza) => total + pizza.prix, 0);
+};

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { retirerPanier } from "../features/pizzaSlice";
+import { retirerPanier, selectTotalPanier } from "../features/pizzaSlice";
 import {useLocation,useNavigate} from 'react-router-dom'
 
 export default function Panier() {
@@ -7,6 +7,7 @@ export default function Panier() {
   const dispatch = useDispatch();
   const local = useLocation();
   const navigate = useNavigate();
+  const prixTotal = useSelector(selectTotalPanier)
   console.log(panier);
   
   return (
@@ -49,11 +50,11 @@ export default function Panier() {
       <div style={{backgroundColor:'rgb(245, 247, 249)', width:'100%', marginLeft:'auto',marginRight:'auto', marginTop:'3%'}}>
             <div style={{display:'flex',justifyContent:'space-between'}}>
                 <p>Livraison</p>
-                <p>(montant)</p>
+                <p>{prixTotal}</p>
             </div>
             <div style={{display:'flex',justifyContent:'space-between'}}>
                 <p>Total</p>
-                <p>(montant)</p>
+                <p>{prixTotal}</p>
             </div>
       </div>
       <div>
@@ -61,7 +62,7 @@ export default function Panier() {
             <div style={{display:'flex', justifyContent:'space-between', marginLeft:'auto',marginRight:'auto',marginTop:'2px'}}>
                 <p style={{backgroundColor:'rgb(76, 111, 1)', padding:'0 10px 0 10px', color:'white',fontSize:'20px'}}>1</p>
                 <p style={{color:'white', fontSize:'20px', marginLeft:'4%'}}>Commander</p>
-                <p  style={{color:'white', fontSize:'20px'}}>(montant)</p>
+                <p style={{color:'white', fontSize:'20px'}}>(montant)</p>
             </div>
         </button>
       </div>
