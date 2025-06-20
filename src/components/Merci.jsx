@@ -1,9 +1,6 @@
 import '../App.css'
 
-
 export default function Merci(){
-
-
 
     return(
         <>
