@@ -54,7 +54,7 @@ export default function Panier() {
       <div style={{marginTop:'10%', textAlign:'center', border:'1px dashed black', padding:'0 10px 0 10px',opacity:'0.6', width:'89%',marginLeft:'auto',marginRight:'auto'}}>
         <p>Code</p>
         <input type="text" value={coupon} onChange={(e)=>{setCoupon(e.target.value)}}/>
-        <button onClick={()=>{dispatch(ajouterCoupon(coupon)),setCoupon('')}}>Valider</button>
+        <button style={{backgroundColor:'rgb(128, 187, 1)', color:'white',border:'none', height:'30px',borderRadius:'10px'}} onClick={()=>{dispatch(ajouterCoupon(coupon)),setCoupon('')}}>Valider</button>
         {error!==null&&<p>{error}</p>}
       </div>
       <div style={{backgroundColor:'rgb(245, 247, 249)', width:'100%', marginLeft:'auto',marginRight:'auto', marginTop:'3%'}}>
