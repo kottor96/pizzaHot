@@ -45,5 +45,7 @@ export const {ajouterPanier,retirerPanier,switchIngredient,cancel,valider} = Piz
 export const PizzaReducer = PizzaSlice.reducer
 
 export const selectTotalPanier = (state) => {
-  return state.pizza.panier.reduce((total, pizza) => total + pizza.prix, 0);
+  return state.pizza.panier
+    .filter(pizza=> pizza.afficher === true)
+    .reduce((total, pizza) => total + pizza.price, 0);
 };
