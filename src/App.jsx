@@ -3,7 +3,7 @@ import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import './app.css'
 import ModifPizza from "./pages/ModifPizza";
-
+import Merci from "./pages/Merci";
 function App() {
 
   return (
@@ -12,6 +12,7 @@ function App() {
         <Route path={'/'} element={<Layout/>}>
           <Route index element={<Home/>}/>
           <Route path="/modif/:recup" element={<ModifPizza/>}/>
+          <Route path="/merci" element={<Merci/>}/>
         </Route>
       </Routes>
     </>
