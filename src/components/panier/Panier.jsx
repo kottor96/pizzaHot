@@ -90,7 +90,8 @@ export default function Panier() {
                   {el.ingredients
                     .filter((ingredient) => ingredient.quantiter === false)
                     .map((ingredient) => ingredient.name)
-                    .join(" - ")}
+                    .join(" - ")
+                  }
                 </div>
               </div>
               <p style={{ fontWeight: "400" }}>
@@ -186,13 +187,15 @@ export default function Panier() {
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          {gratos &&
-            promoGratos &&
-            promoGratos.condition <= panier.length &&
-            gratos.price && <p>-{Number(gratos.price).toFixed(2)} €</p>}
-          {promoReduction && promoReduction.value && (
-            <p>-{(total_sansReduc * promoReduction.value).toFixed(2)} €</p>
-          )}
+          <div>
+            {gratos &&
+              promoGratos &&
+              promoGratos.condition <= panier.length &&
+              gratos.price && <p>-{Number(gratos.price).toFixed(2)} €</p>}
+            {promoReduction && promoReduction.value && (
+              <p>-{(total_sansReduc * promoReduction.value).toFixed(2)} €</p>
+            )}
+          </div>
           <p>Total</p>
           <p>{Number(total).toFixed(2)} €</p>
         </div>
