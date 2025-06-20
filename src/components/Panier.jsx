@@ -53,7 +53,7 @@ export default function Panier() {
       <div style={{marginTop:'10%', textAlign:'center', border:'1px dashed black', padding:'0 10px 0 10px',opacity:'0.6', width:'89%',marginLeft:'auto',marginRight:'auto'}}>
         <p>Code</p>
         <input type="text" value={coupon} onChange={(e)=>{setCoupon(e.target.value)}}/>
-        <button onClick={()=>{dispatch(ajouterCoupon(coupon)),setCoupon('')}}>Valider</button>
+        <button style={{backgroundColor:'rgb(128, 187, 1)', color:'white',border:'none', height:'30px',borderRadius:'10px'}} onClick={()=>{dispatch(ajouterCoupon(coupon)),setCoupon('')}}>Valider</button>
         {error!==null&&<p>{error}</p>}
       </div>
       <div style={{backgroundColor:'rgb(245, 247, 249)', width:'100%', marginLeft:'auto',marginRight:'auto', marginTop:'3%'}}>
@@ -69,8 +69,8 @@ export default function Panier() {
         </div>
       </div>
       <div>
-        <button style={{width:'370px', height:'40px', backgroundColor:'rgb(128, 187, 1)'}}>
-            <div style={{display:'flex', justifyContent:'space-between', marginLeft:'auto',marginRight:'auto',marginTop:'2px'}}>
+        <button style={{width:'370px',backgroundColor:'rgb(128, 187, 1)', border:'none', height:'50px', borderRadius:'10px'}}>
+            <div style={{display:'flex', justifyContent:'space-between', marginLeft:'auto',marginRight:'auto',marginTop:'7px'}}>
                 <p style={{backgroundColor:'rgb(76, 111, 1)', padding:'0 10px 0 10px', color:'white',fontSize:'20px'}}>1</p>
                 <p style={{color:'white', fontSize:'20px', marginLeft:'4%'}}>Commander</p>
                 <p style={{color:'white', fontSize:'20px'}}>{total.toFixed(2)} €</p>
