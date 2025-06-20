@@ -51,10 +51,13 @@ const PizzaSlice = createSlice({
             } else {
                 state.error = "code mauvais"
             }
+        },
+        validerCommande(){
+            return initialState
         }
     }
 })
-export const {ajouterPanier,retirerPanier,switchIngredient,cancel,valider,ajouterCoupon} = PizzaSlice.actions
+export const {ajouterPanier,retirerPanier,switchIngredient,cancel,valider,ajouterCoupon,validerCommande} = PizzaSlice.actions
 export const PizzaReducer = PizzaSlice.reducer
 
 const selectPanier = (state) => state.pizza.panier;
