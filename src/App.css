@@ -35,3 +35,14 @@
     font-size: 17px;
     opacity: 60%;
 }
+
+#modifPizza{
+    display: flex;
+    width: 100%;
+}
+#modif1{
+    width: 48%;
+}
+#modif2{
+    width: 48%;
+}

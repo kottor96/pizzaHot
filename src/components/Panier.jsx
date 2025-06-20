@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ajouterCoupon, retirerPanier, selectTotalPanier } from "../features/pizzaSlice";
-import {Link, useLocation,useNavigate} from 'react-router-dom'
+import { useLocation,useNavigate } from 'react-router-dom'
 import { useState } from "react";
 
 
