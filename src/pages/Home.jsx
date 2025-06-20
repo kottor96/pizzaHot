@@ -1,9 +1,9 @@
 import { useSelector,useDispatch } from "react-redux";
 import  './Home.css'
 import { ajouterPanier } from "../features/pizzaSlice";
-import Panier from "../components/Panier";
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from "react";
+import Panier from "../components/panier/Panier";
 
 export default function Home() {
     const navigate = useNavigate()

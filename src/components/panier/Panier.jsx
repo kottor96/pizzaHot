@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ajouterCoupon, retirerPanier, selectTotalPanier, validerCommande } from "../features/pizzaSlice";
-import {Link, useLocation,useNavigate} from 'react-router-dom'
+import { ajouterCoupon, retirerPanier, selectTotalPanier, validerCommande } from "../../features/pizzaSlice";
+import { useLocation,useNavigate} from 'react-router-dom'
 import { useState } from "react";
+import "./panier.css";
 
 
 export default function Panier() {
@@ -58,13 +59,11 @@ export default function Panier() {
         {error!==null&&<p>{error}</p>}
       </div>
       <div style={{backgroundColor:'rgb(245, 247, 249)', width:'100%', marginLeft:'auto',marginRight:'auto', marginTop:'3%'}}>
-        {/* <div style={{display:'flex',justifyContent:'space-between'}}>
-            <p>Livraison</p>
-            <p>{total} €</p>
-        </div> */}
-        <div style={{display:'flex',justifyContent:'space-between'}}>
+        <div>
           {gratos!==null&&promoGratos&&promoGratos.condition<=panier.length&&<p>-{gratos.price.toFixed(2)}</p>}
           {promoReduction!==null&&<p>-{(total_sansReduc*promoReduction.value).toFixed(2)} €</p>}
+        </div>
+        <div style={{display:'flex',justifyContent:'space-between'}}>
           <p>Total</p>
           <p>{total.toFixed(2)} €</p>
         </div>
