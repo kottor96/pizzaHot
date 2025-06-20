@@ -42,7 +42,42 @@
 }
 #modif1{
     width: 48%;
+    margin-top: 5%;
+    text-align: center;
+
 }
 #modif2{
     width: 48%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.retour{
+  border: none;
+  background-color: rgb(128, 187, 1);  
+  color: white;
+  border-radius: 5px;
+  height: 40px;
+  width: 80px;
+  margin-bottom: 2.5%;
+}
+
+#RetireIng{
+    border: none;
+    background: transparent;
+    font-weight: 300;
+    color: crimson;
+}
+
+#valid{
+    border: none;
+    background: transparent;
+    font-weight: bold;
+    color: rgb(118, 163, 50);
+    font-size: 20px;
+    margin-bottom: 5%;
+}
+footer{
+    z-index: 100;
 }
