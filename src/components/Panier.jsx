@@ -48,21 +48,21 @@ export default function Panier() {
         <p>Vous pouvez entrer votre coupon à l'étape suivante !</p>
       </div>
       <div style={{backgroundColor:'rgb(245, 247, 249)', width:'100%', marginLeft:'auto',marginRight:'auto', marginTop:'3%'}}>
-            <div style={{display:'flex',justifyContent:'space-between'}}>
-                <p>Livraison</p>
-                <p>{prixTotal}</p>
-            </div>
-            <div style={{display:'flex',justifyContent:'space-between'}}>
-                <p>Total</p>
-                <p>{prixTotal}</p>
-            </div>
+        {/* <div style={{display:'flex',justifyContent:'space-between'}}>
+            <p>Livraison</p>
+            <p>{prixTotal} €</p>
+        </div> */}
+        <div style={{display:'flex',justifyContent:'space-between'}}>
+            <p>Total</p>
+            <p>{prixTotal} €</p>
+        </div>
       </div>
       <div>
         <button style={{width:'370px', height:'40px', backgroundColor:'rgb(128, 187, 1)'}}>
             <div style={{display:'flex', justifyContent:'space-between', marginLeft:'auto',marginRight:'auto',marginTop:'2px'}}>
                 <p style={{backgroundColor:'rgb(76, 111, 1)', padding:'0 10px 0 10px', color:'white',fontSize:'20px'}}>1</p>
                 <p style={{color:'white', fontSize:'20px', marginLeft:'4%'}}>Commander</p>
-                <p style={{color:'white', fontSize:'20px'}}>{prixTotal}</p>
+                <p style={{color:'white', fontSize:'20px'}}>{prixTotal} €</p>
             </div>
         </button>
       </div>
