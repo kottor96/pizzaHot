@@ -58,8 +58,8 @@ export default function Panier() {
         </div>
       </div>
       <div>
-        <button style={{width:'370px', height:'40px', backgroundColor:'rgb(128, 187, 1)'}}>
-            <div style={{display:'flex', justifyContent:'space-between', marginLeft:'auto',marginRight:'auto',marginTop:'2px'}}>
+        <button style={{width:'370px',backgroundColor:'rgb(128, 187, 1)', border:'none', height:'50px', borderRadius:'10px'}}>
+            <div style={{display:'flex', justifyContent:'space-between', marginLeft:'auto',marginRight:'auto',marginTop:'7px'}}>
                 <p style={{backgroundColor:'rgb(76, 111, 1)', padding:'0 10px 0 10px', color:'white',fontSize:'20px'}}>1</p>
                 <p style={{color:'white', fontSize:'20px', marginLeft:'4%'}}>Commander</p>
                 <p style={{color:'white', fontSize:'20px'}}>{prixTotal} €</p>
