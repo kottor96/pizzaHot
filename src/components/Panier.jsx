@@ -11,7 +11,7 @@ export default function Panier() {
   const promoGratos = useSelector((state) => state.pizza.gratos);
   const local = useLocation();
   const {total,gratos,total_sansReduc} = useSelector(selectTotalPanier)
-  const [coupon,setCoupon] = useState() 
+  const [coupon,setCoupon] = useState("") 
 
   const error = useSelector((state) => state.pizza.error)
   
