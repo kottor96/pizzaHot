@@ -1,14 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
-import { retirerPanier, selectTotalPanier } from "../features/pizzaSlice";
+import { ajouterCoupon, retirerPanier, selectTotalPanier } from "../features/pizzaSlice";
 import {useLocation,useNavigate} from 'react-router-dom'
+import { useState } from "react";
 
 export default function Panier() {
-  const panier = useSelector((state) => state.pizza.panier);
-  const dispatch = useDispatch();
-  const local = useLocation();
   const navigate = useNavigate();
-  const prixTotal = useSelector(selectTotalPanier)
-  console.log(panier);
+  const dispatch = useDispatch();
+  const panier = useSelector((state) => state.pizza.panier);
+  const promoReduction = useSelector((state) => state.pizza.reduction);
+  const promoGratos = useSelector((state) => state.pizza.gratos);
+  const local = useLocation();
+  const {total,gratos,total_sansReduc} = useSelector(selectTotalPanier)
+  const [coupon,setCoupon] = useState() 
+    
+
+  const error = useSelector((state) => state.pizza.error)
+  
   
   return (
     <div style={{ backgroundColor: "white", height: "auto", width: "370px", position: "fixed" }}>
@@ -45,16 +52,21 @@ export default function Panier() {
         ) : null
       )}
       <div style={{marginTop:'10%', textAlign:'center', border:'1px dashed black', padding:'0 10px 0 10px',opacity:'0.6', width:'89%',marginLeft:'auto',marginRight:'auto'}}>
-        <p>Vous pouvez entrer votre coupon à l'étape suivante !</p>
+        <p>Code</p>
+        <input type="text" value={coupon} onChange={(e)=>{setCoupon(e.target.value)}}/>
+        <button onClick={()=>{dispatch(ajouterCoupon(coupon)),setCoupon('')}}>Valider</button>
+        {error!==null&&<p>{error}</p>}
       </div>
       <div style={{backgroundColor:'rgb(245, 247, 249)', width:'100%', marginLeft:'auto',marginRight:'auto', marginTop:'3%'}}>
         {/* <div style={{display:'flex',justifyContent:'space-between'}}>
             <p>Livraison</p>
-            <p>{prixTotal} €</p>
+            <p>{total} €</p>
         </div> */}
         <div style={{display:'flex',justifyContent:'space-between'}}>
-            <p>Total</p>
-            <p>{prixTotal} €</p>
+          {gratos!==null&&promoGratos&&promoGratos.condition<=panier.length&&<p>-{gratos.price.toFixed(2)}</p>}
+          {promoReduction!==null&&<p>-{(total_sansReduc*promoReduction.value).toFixed(2)} €</p>}
+          <p>Total</p>
+          <p>{total.toFixed(2)} €</p>
         </div>
       </div>
       <div>
@@ -62,7 +74,7 @@ export default function Panier() {
             <div style={{display:'flex', justifyContent:'space-between', marginLeft:'auto',marginRight:'auto',marginTop:'7px'}}>
                 <p style={{backgroundColor:'rgb(76, 111, 1)', padding:'0 10px 0 10px', color:'white',fontSize:'20px'}}>1</p>
                 <p style={{color:'white', fontSize:'20px', marginLeft:'4%'}}>Commander</p>
-                <p style={{color:'white', fontSize:'20px'}}>{prixTotal} €</p>
+                <p style={{color:'white', fontSize:'20px'}}>{total.toFixed(2)} €</p>
             </div>
         </button>
       </div>
