@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ajouterCoupon, retirerPanier, selectTotalPanier, validerCommande } from "../features/pizzaSlice";
 import { useLocation,useNavigate} from 'react-router-dom'
 import { useState } from "react";
 import "./panier.css";
+import { validerCommande,ajouterCoupon, retirerPanier, selectTotalPanier } from "../../features/pizzaSlice";
 
-
+validerCommande
 export default function Panier() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
