@@ -1,9 +1,16 @@
 #panierPage{
     min-height: calc(100vh - 11.9rem);
     width: 100vw !important;
+    padding: 2em;
 }
 .valider{
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+}
+.btn_retour{
+    background-color: rgb(128, 187, 1);
+    border: none;
+    border-radius: 5px;
+    margin-left: 1rem;
 }

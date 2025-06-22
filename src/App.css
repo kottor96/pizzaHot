@@ -101,6 +101,7 @@ footer{
     background-color: darkgreen;
     padding: 1px 10px;
 }
+
 @media (max-width:425px)  {
   .btn_panier{
     display: flex;
