@@ -23,7 +23,7 @@ export default function Home() {
           paddingBottom: "10%",
         }}
       >
-        <div
+        <div id="catalogue"
           style={{
             width: "66%",
             backgroundColor: "rgb(245, 247, 249)",

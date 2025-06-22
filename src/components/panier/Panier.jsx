@@ -24,7 +24,7 @@ export default function Panier() {
   const error = useSelector((state) => state.pizza.error);
 
   return (
-    <div
+    <div id="panier"
       style={{
         backgroundColor: "white",
         width: "370px",

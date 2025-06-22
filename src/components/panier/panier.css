@@ -1,3 +1,19 @@
 #panier .reduc{
     text-align: right;
 }
+@media (max-width: 991.98px) {
+    #navbar .container {
+        justify-content: space-between !important;
+        text-align: right;
+    }
+    #navbarText .navbar-nav {
+        justify-content: flex-end;
+    }
+}
+
+
+@media (max-width:425px)  {
+    #panier{
+        display: none !important;
+    }
+}
