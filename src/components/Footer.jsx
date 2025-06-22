@@ -8,7 +8,6 @@ export default function Footer() {
         style={{
           backgroundColor: "rgb(35, 31, 32)",
           height: "auto",
-          padding: "5% 15% 0 15%",
           height: "5rem",
           boxSizing:"border-box"
         }}
