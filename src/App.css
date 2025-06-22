@@ -81,3 +81,28 @@
 footer{
     z-index: 100;
 }
+.btn_panier{
+    /* display: none; */
+    position: sticky;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(128, 187, 1);
+    z-index: 2;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: white;
+    gap: 1rem;
+    align-items: center;
+    display: none;
+}
+.btn_panier p:first-child{
+    background-color: darkgreen;
+    padding: 1px 10px;
+}
+@media (max-width:425px)  {
+  .btn_panier{
+    display: flex;
+  }
+}

@@ -1,0 +1,22 @@
+@media (max-width: 425px) {
+    #modif2{
+        display: none !important;
+    }
+    #modif1{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 83vh;
+    }
+    .back{
+        text-align: left;
+        margin-left: 3rem;
+    }
+    .image{
+        width: 90vw;
+    }
+    .image img{
+        width: 100%;
+    }
+}

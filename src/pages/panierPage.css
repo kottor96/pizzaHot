@@ -1,0 +1,9 @@
+#panierPage{
+    min-height: calc(100vh - 11.9rem);
+    width: 100vw !important;
+}
+.valider{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}

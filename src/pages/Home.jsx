@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import "./Home.css";
-import { ajouterPanier } from "../features/pizzaSlice";
+import { ajouterPanier } from "../features/PizzaSlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Panier from "../components/panier/Panier";
+import BtnPanier from "../components/btnPanier";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -122,6 +123,7 @@ export default function Home() {
           <Panier />
         </div>
       </div>
+      <BtnPanier/>
     </>
   );
 }

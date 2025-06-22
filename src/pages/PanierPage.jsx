@@ -4,12 +4,12 @@ import {
   ajouterCoupon,
   retirerPanier,
   selectTotalPanier,
-} from "../../features/PizzaSlice";
+} from "../features/PizzaSlice";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import "./panier.css";
+import "./panierPage.css";
 
-export default function Panier() {
+export default function PanierPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const panier = useSelector((state) => state.pizza.panier);
@@ -24,12 +24,14 @@ export default function Panier() {
   const error = useSelector((state) => state.pizza.error);
 
   return (
-    <div id="panier"
-      style={{
-        backgroundColor: "white",
-        width: "370px",
-      }}
+    <div id="panierPage"
+    style={{
+      backgroundColor: "white",
+      width: "370px",
+      marginTop:"50px"
+    }}
     >
+      <button className="btn_retour" onClick={()=>{navigate(-1)}}>X</button>
       <h5 style={{ fontWeight: "bolder" }}>Panier d'achat</h5>
       <div
         style={{
@@ -202,7 +204,7 @@ export default function Panier() {
           </div>
         </div>
       </div>
-      {local.pathname=="/"&&<div>
+      <div className="valider">
         <button
           onClick={() => {navigate("/merci" ),dispatch(validerCommande())}}
           style={{
@@ -240,7 +242,7 @@ export default function Panier() {
             </p>
           </div>
         </button>
-      </div>}
+      </div>
     </div>
   );
 }

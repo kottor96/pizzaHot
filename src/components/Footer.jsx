@@ -9,9 +9,11 @@ export default function Footer() {
           backgroundColor: "rgb(35, 31, 32)",
           height: "auto",
           padding: "5% 15% 0 15%",
+          height: "5rem",
+          boxSizing:"border-box"
         }}
       >
-        <div
+        {/* <div
           style={{
             width: "100%",
             display: "flex",
@@ -56,14 +58,14 @@ export default function Footer() {
               fontSize: "11px",
               gap: "3%",
             }}
-          >
-            <p>© 2025 Pizza Hot Training Template</p>
-            <a href="#">Conditions de ventes</a>
+          > */}
+            <p style={{color:"white", margin:"0"}}>© 2025 Pizza Hot Training Template</p>
+            {/* <a href="#">Conditions de ventes</a>
             <a href="#">Conditions générales</a>
             <a href="#">Conditions de confidentialité</a>
-            <a href="#">Cookies</a>
-          </div>
-        </div>
+            <a href="#">Cookies</a> */}
+          {/* </div>
+        </div> */}
       </footer>
     </>
   );

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import { useParams,useNavigate } from "react-router-dom";
-import { cancel, switchIngredient, valider } from "../features/pizzaSlice";
+import { cancel, switchIngredient, valider } from "../features/PizzaSlice";
 import Panier from "../components/panier/Panier";
+import "./modifPanier.css";
 
 export default function ModifPizza() {
   const panier = useSelector((state) => state.pizza.panier);
@@ -23,7 +24,7 @@ export default function ModifPizza() {
     <section>
       <div id="modifPizza">
         <div id="modif1">
-          <div>
+          <div className="back">
             <button
               className="retour"
               onClick={() => {
@@ -35,7 +36,7 @@ export default function ModifPizza() {
           </div>
           {pizza ? (
             <div>
-              <div>
+              <div className="image">
                 <img
                   style={{ borderRadius: "5px", marginBottom: "5%" }}
                   src={pizza.image}

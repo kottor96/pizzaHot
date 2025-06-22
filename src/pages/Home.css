@@ -47,7 +47,8 @@
 
 
 @media (max-width:425px)  {
-  #catalogue,#catalogue>div{
+  #catalogue{
     min-width: 100% !important;
+    padding: 0 !important;
   }
 }

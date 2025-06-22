@@ -4,14 +4,14 @@ import '../App.css'
 
 export default function Navbar(params) {
     return(
-        <nav id="navbar" style={{position:'fixed', width:'100%'}} className="navbar bg-danger navbar-expand-lg" data-bs-theme='dark'>
+        <nav id="navbar" style={{ width:'100%'}} className="navbar bg-danger navbar-expand-lg sticky-top" data-bs-theme='dark'>
             <div className="container justify-content-center" >
                 <div className="navbar-brand">
                     <img src={logo} alt="logo pizza hut" />
                 </div>
                 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
                 
                 <div className="navbar-collapse collapse" id="navbarText">

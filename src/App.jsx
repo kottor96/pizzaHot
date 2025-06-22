@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import './app.css'
 import ModifPizza from "./pages/ModifPizza";
 import Merci from "./pages/Merci";
+import PanierPage from "./pages/PanierPage";
 function App() {
 
   return (
@@ -11,8 +12,9 @@ function App() {
       <Routes>
         <Route path={'/'} element={<Layout/>}>
           <Route index element={<Home/>}/>
-          <Route path="/modif/:recup" element={<ModifPizza/>}/>
-          <Route path="/merci" element={<Merci/>}/>
+          <Route path="modif/:recup" element={<ModifPizza/>}/>
+          <Route path="merci" element={<Merci/>}/>
+          <Route path="panier" element={<PanierPage/>}/>
         </Route>
       </Routes>
     </>
