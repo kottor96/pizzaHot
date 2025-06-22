@@ -15,10 +15,12 @@ export default function Home() {
   return (
     <>
       <div
+        id="home"
         style={{
           width: "100%",
           height: "auto",
-          padding: "0 10% 0 10%",
+          padding: "0 5vw",
+          boxSizing:"border-box",
           display: "flex",
           backgroundColor: "rgb(245, 247, 249)",
           paddingBottom: "10%",
@@ -109,10 +111,11 @@ export default function Home() {
           ))}
         </div>
         <div
+          id="panierHome"
           style={{
             position: "sticky",
             top: "6%",
-            width: "33%",
+            width: "34%",
             height: "100%",
             display: "flex",
             padding: "2% 0 0 2%",

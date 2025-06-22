@@ -46,6 +46,21 @@
 }
 
 
+@media (max-width:768px)  {
+  #home{
+    padding: 0 !important;
+  }
+  #catalogue{
+    width: 50% !important;
+  }
+  #panierHome{
+    width: 50% !important;
+    padding: 0 !important;
+  }
+  #panier{
+    width: 100% !important;
+  }
+}
 @media (max-width:425px)  {
   #catalogue{
     min-width: 100% !important;

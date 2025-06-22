@@ -206,7 +206,7 @@ export default function Panier() {
         <button
           onClick={() => {navigate("/merci" ),dispatch(validerCommande())}}
           style={{
-            width: "370px",
+            width: "100%",
             backgroundColor: "rgb(128, 187, 1)",
             border: "none",
             height: "50px",
