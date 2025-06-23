@@ -22,7 +22,7 @@ export default function ModifPizza() {
 
   return (
     <section>
-      <div id="modifPizza">
+      <div id="modifPizza" style={{minHeight:"75vh"}}>
         <div id="modif1">
           <div className="back">
             <button
